@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficas del Proyecto</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #3f51b5;
+            /* Blueish title */
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        h1::before {
+            content: '📊';
+            /* Graph icon placeholder */
+            font-size: 1.2em;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 columns */
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Responsive grid */
+        @media (max-width: 800px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .btn-graph {
+            background-color: transparent;
+            color: #3f51b5;
+            border: 2px solid #3f51b5;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-graph:hover {
+            background-color: #3f51b5;
+            color: white;
+        }
+
+        .btn-back {
+            background-color: #29b6f6;
+            /* Lighter blue for back button */
+            background-image: linear-gradient(to right, #4481eb, #04befe);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .btn-back:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Gráficas del Proyecto Agora</h1>
+
+    <div class="grid-container">
+        <!-- Buttons 1-12 -->
+        <button class="btn-graph" onclick="openModal('Gráfico_1.png')">Gráfica 1</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_2.png')">Gráfica 2</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_3.png')">Gráfica 3</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_4.png')">Gráfica 4</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_5.png')">Gráfica 5</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_6.png')">Gráfica 6</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_7.png')">Gráfica 7</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_8.png')">Gráfica 8</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_9.png')">Gráfica 9</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_10.png')">Gráfica 10</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_11.png')">Gráfica 11</button>
+        <button class="btn-graph" onclick="openModal('Gráfico_12.png')">Gráfica 12</button>
+    </div>
+
+    <a href="parcial3.html" class="btn-back">Regresar a Menú Principal</a>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+            modal.style.display = "flex";
+            modalImg.src = imageSrc;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function (event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
